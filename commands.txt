@@ -1,0 +1,23 @@
+Week 5:
+docker swarm init
+
+docker node ls
+cls = clear screen
+
+docker deploy --compose-file docker-compose.yml sockshop
+
+docker service scale sockshop_catalogue=3
+
+Setup weaveworks: https://web.microsoftstream.com/video/01679971-631e-46e3-94c3-38c3a0409f6a
+
+(31/03/2021: 2 weken trial period!)
+docker run --privileged -d --name=weavecloud-agent --net=host --pid=host -v /var/run/docker.sock:/var/run/docker.sock store/weaveworks/cloud-agent:1.3.0 --probe.token=fyxn9e7exy5b7igp6gkkbs6k55ma4z9o
+
+
+Desgewenst, verwijder alles weer:
+
+Gebruik docker stack rm <<naam van je cluster>>
+Haal docker weer uit de swarm mode: docker swarm leave --force
+--force is nodig omdat onze huidige node de manager is. Als we een worker node waren geweest dan was het geen probleem en werd het doorgegeven aan de manager. Omdat we de manager zijn vind hij het normaal niet prettig in een cloud omgeving en wil dat we extra kracht gebruiken
+
+Week 6:
